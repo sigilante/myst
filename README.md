@@ -1,11 +1,17 @@
-#   Sunrise:  A schematic agent to brighten your day
+#   `%myst`
 
-Use Sunrise to start a new “empty” Urbit app project.  Import the repo, then simply rename all text and files from `sunrise` to whatever your new agent's name will be.  Run `./rename.sh new-name` to replace all instances of `sunrise` with `new-name` throughout.
+* Define a agent-level protocol for managing stateful graph
+* 
 
-Sunrise is modestly opinionated but generally straightforward.  If you are interested in having the `++abet` nested-core pattern in your agent, see [Moonrise](https://github.com/sigilante/moonrise).
+---
 
-![](logo.jpg)
+kinds of changes:
+- inventory
+- in-page trigger
+- off-page trigger
 
-Prior art:
+**`/sur/myst`**
 
-- ~rabsef-bicrym and Dalten Collective, [`agent-skeleton`](https://github.com/dalten-collective/agent-skeleton)
+```hoon
+
+```
