@@ -5,17 +5,17 @@
 ::  State variables
 +$  user-state
   $:  [%posn posn=node-id]
-      [%page p=(unit ?(%red %blue))]
+      [%page page=(unit ?(%red %blue))]
   ==
 +$  node-state
   $:  [%image url=cord]
-      [%state (set term)]
+      [%state tags=(set term)]
   ==
 ::  Game world
 +$  coord  [x=@ y=@ w=@ h=@]
 +$  coords  (list [x=@ y=@ w=@ h=@])
 +$  node
-  $:  actions=(map coord action)
+  $:  actions=(map =coord =action)
       state=node-state
   ==
 +$  node-id  path

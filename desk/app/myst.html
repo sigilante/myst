@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    /* Center the image */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+    }
+    img {
+      cursor: pointer; /* Changes the cursor to indicate the image is clickable */
+      max-width: 100%; /* Ensure the image is not larger than the screen */
+      max-height: 80vh; /* Adjust based on your needs */
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container"></div> <!-- Added a container for the image -->
+
+  <script>
+    async function getState() {
+      const response = await fetch('/apps/myst/json');
+      return response.json();
+    }
+
+    async function postClick(url, x, y) {
+      const response = await fetch('/apps/myst', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"click": {"x": x, "y": y}})
+      });
+      return response.json();
+    }
+
+    function renderPage(state) {
+      const imageContainer = document.querySelector('.image-container');
+      imageContainer.innerHTML = ''; // Clear previous content
+
+      const img = new Image();
+      img.src = state.image;
+      img.alt = 'Myst Image';
+      img.onload = () => { // Ensures the image is loaded before adding event listeners
+        img.addEventListener('click', async (event) => {
+          const rect = img.getBoundingClientRect();
+          const offsetX = event.clientX - rect.left; // Get the mouse position relative to the image
+          const offsetY = event.clientY - rect.top;
+          const x = Math.floor((offsetX / img.width) * 1000);
+          const y = Math.floor((offsetY / img.height) * 1000);
+          const newState = await postClick(state.position, x, y);
+          renderPage(newState); // Re-render the page with the new state
+        });
+      };
+
+      imageContainer.appendChild(img); // Add the image to the container
+    }
+
+    getState().then((state) => renderPage(state));
+  </script>
+</body>
+</html>
