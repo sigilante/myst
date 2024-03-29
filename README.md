@@ -1,8 +1,17 @@
 #   `%myst`
 
 * [x] Define a agent-level protocol for managing stateful graph
-* [ ] Figure out front-end to talk back.
-* [ ] Write the `/app` agent.
+* [x] Figure out front-end to talk back.
+* [x] Write the `/app` agent.
+
+**WIP ~2024.3.29**
+
+TODO:
+
+* [ ] world editor
+* [ ] minigame format
+* [ ] actual gameplay
+* [ ] handle pages (red/blue)
 
 ##  Resources
 
