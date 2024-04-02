@@ -8,7 +8,7 @@
     verb,
     schooner,
     server
-/=  w  /app/world
+/=  w  /app/myst/world
 /*  ui  %html  /app/myst/html
 |%
 +$  versioned-state
@@ -36,7 +36,7 @@
   :-  :~  [%pass /eyre/connect %arvo %e %connect [~ /apps/[dap.bowl]] dap.bowl]
       ==
   %=  this
-    user-state  [[%posn /lighthouse] [%page `%red]]
+    user-state  [[%posn /dock-1e] [%page `%red]]
     world  `^world`w
   ==
 ++  on-save   !>(state)
